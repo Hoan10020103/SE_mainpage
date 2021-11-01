@@ -2,33 +2,58 @@
 body {
     font-family: arial, sans-serif;
     display: flex;
-    max-width: 1000px;
     margin: 0 auto;
   }
-  #poslist { width: 70%; }
+  #main-menu { width: 70%; }
   #poscart { width: 30%; }
   
+  /* header */
+  #header{
+    margin: 20px 0px 20px 30px;
+    display: flex;
+  }
+    /* home logo */
+    #header img{
+      height: 50px;
+      width: 50px;
+    }
+    /* back to home */
+    #header div{
+      text-align: end;
+      display: flex;
+    }
+    #header strong{
+      color: #3d6091;
+      font-size: 30px;
+      margin-left: 20px;
+      align-self: center;
+    }
   /* (B) PRODUCTS LIST */
   #poslist {
     display: grid;
-    grid-template-columns: auto auto auto;
+    background-color: rgb(247, 245, 245);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
   .pwrap {
     margin: 10px;
     padding: 10px;
     border: 1px solid #ddd;
-    background: #fbfbfb;
+    background-color: #fff;
     cursor: pointer;
     text-align: center;
+    border-radius: 20px;
+    border-style: double;
+    box-shadow: 0px 0px 5px 0px rgb(180, 180, 180);
   }
-  .pimg { width: 200px; height: 200px}
+  .pimg { width: 150px; height: 150px;}
   .pname { font-weight: 700; }
   .pprice { color: #639aff; }
   
   /* (C) CART */
   #poscart {
     padding: 10px;
-    background: #f7f7f7;
+    background: #fff;
+    box-shadow: -5px 0px 3px 0px rgb(196, 196, 196);
   }
   .citem > * { box-sizing: border-box; }
   .citem, .cname { width: 100%; }
