@@ -1,12 +1,24 @@
 var products = {
     // (A) PRODUCTS LIST
     list : {
-      1 : { name:"Banana", img:"banana.png", price: 12 },
-      2 : { name:"Cherry", img:"cherry.png", price: 23 },
-      3 : { name:"Ice Cream", img:"icecream.png", price: 54 },
-      4 : { name:"Orange", img:"orange.png", price: 65 },
-      5 : { name:"Strawberry", img:"strawberry.png", price: 34 },
-      6 : { name:"Watermelon", img:"watermelon.png", price: 67 }
+      1 : { name:"Deep Fried Grouper Fish Fillet Wrapper With Glutinous Rice", img:"images1.png", price: 16.38 },
+      2 : { name:"Roasted Iberico Pork Ribs", img:"images2.png", price: 11.56 },
+      3 : { name:"Roasted Sliced Duck & Sliced Mango In Pecking Style", img:"images3.png", price: 16.38 },
+      4 : { name:"Deep Fried Fish Fillet With Pomegranate In Orange Juice", img:"images4.png", price: 11.56 },
+      5 : { name:"Braised Sea Cucumber With White Tofu In Spicy Sauce", img:"images5.png", price: 8.86 },
+      6 : { name:"Steamed Red Tilapia Fish With Lemon Grass & Green", img:"images6.png", price: 21.20 },
+      7 : { name:"Steamed White Tofu With Red Caviar & Crystal Prawn Cubes", img:"images7.png", price: 6.74 },
+      8 : { name:"Stir Fried Crystal Prawn Cubes With Omelettes & Tomatoes", img:"images8.png", price: 9.15 },
+      9 : { name:"Baked Chicken Chop With Potatoes & Mixed Herbs", img:"images9.png", price: 6.74 },
+      10 : { name:"Double Boiled Ficus Carica With Pear Soup & Dried Scallop", img:"images10.png", price: 4.34 },
+      11 : { name:"Tilapia Fish with Cabbage in Supereme Soup", img:"images11.png", price: 7.59 },
+      12 : { name:"Shark's Fin Soup with Papaya", img:"images12.png", price: 100 },
+      13 : { name:"Genting Noodle Superior Soup (Half Chicken)", img:"images13.png", price: 7.59 },
+      14 : { name:"Genting Tomato Soup Series", img:"images14.png", price:  34.69},
+      15 : { name:"Orange Juice", img:"images15.png", price: 2.28 },
+      16 : { name:"I believe I can fly, I believe I can reach the sky", img:"images16.png", price: 99.99 },
+      17 : { name:"Osmanthus Wine Jelly Cake with Wolfberries", img:"images17.png", price: 11.30 },
+      18 : { name:"Sweet rice balls", img:"images18.png", price: 3.45 },
     },
   
     // (B) DRAW HTML PRODUCTS LIST
@@ -31,18 +43,34 @@ var products = {
         segment.className = "pimg";
         segment.src = "images/" + p.img;
         pdt.appendChild(segment);
-  
+        
+        // DETAIL
+        detail = document.createElement("div")
+        detail.className = "item-detail";
+
         // NAME
         segment = document.createElement("div");
         segment.className = "pname";
         segment.innerHTML = p.name;
-        pdt.appendChild(segment);
+        let name_number = document.createElement("span");
+        name_number.innerHTML =  pid + ". "
+        segment.prepend(name_number);
+        detail.appendChild(segment);
   
         // PRICE
         segment = document.createElement("div");
         segment.className = "pprice";
-        segment.innerHTML = "$" + p.price;
-        pdt.appendChild(segment);
+
+        let fin_price = document.createElement("span")
+        fin_price.innerHTML = "$" + p.price;
+        segment.appendChild(fin_price);
+
+        let add_to_cart = document.createElement("img");
+        add_to_cart.src = "images/add-to-cart.png";
+        segment.appendChild(add_to_cart);
+        detail.appendChild(segment);
+
+        pdt.appendChild(detail);
       }
     }
   };
@@ -291,3 +319,5 @@ var products = {
   };
   window.addEventListener("DOMContentLoaded", orders.init);
   
+
+  // test
