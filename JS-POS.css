@@ -21,7 +21,7 @@ body {
     cursor: pointer;
     text-align: center;
   }
-  .pimg { max-width: 100px; }
+  .pimg { width: 200px; height: 200px}
   .pname { font-weight: 700; }
   .pprice { color: #639aff; }
   
