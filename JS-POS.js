@@ -1,24 +1,25 @@
+
 var products = {
     // (A) PRODUCTS LIST
     list : {
-      1 : { name:"Deep Fried Grouper Fish Fillet Wrapper With Glutinous Rice", img:"images1.png", price: 16.38 },
-      2 : { name:"Roasted Iberico Pork Ribs", img:"images2.png", price: 11.56 },
-      3 : { name:"Roasted Sliced Duck & Sliced Mango In Pecking Style", img:"images3.png", price: 16.38 },
-      4 : { name:"Deep Fried Fish Fillet With Pomegranate In Orange Juice", img:"images4.png", price: 11.56 },
-      5 : { name:"Braised Sea Cucumber With White Tofu In Spicy Sauce", img:"images5.png", price: 8.86 },
-      6 : { name:"Steamed Red Tilapia Fish With Lemon Grass & Green", img:"images6.png", price: 21.20 },
-      7 : { name:"Steamed White Tofu With Red Caviar & Crystal Prawn Cubes", img:"images7.png", price: 6.74 },
-      8 : { name:"Stir Fried Crystal Prawn Cubes With Omelettes & Tomatoes", img:"images8.png", price: 9.15 },
-      9 : { name:"Baked Chicken Chop With Potatoes & Mixed Herbs", img:"images9.png", price: 6.74 },
-      10 : { name:"Double Boiled Ficus Carica With Pear Soup & Dried Scallop", img:"images10.png", price: 4.34 },
-      11 : { name:"Tilapia Fish with Cabbage in Supereme Soup", img:"images11.png", price: 7.59 },
-      12 : { name:"Shark's Fin Soup with Papaya", img:"images12.png", price: 100 },
-      13 : { name:"Genting Noodle Superior Soup (Half Chicken)", img:"images13.png", price: 7.59 },
-      14 : { name:"Genting Tomato Soup Series", img:"images14.png", price:  34.69},
-      15 : { name:"Orange Juice", img:"images15.png", price: 2.28 },
-      16 : { name:"I believe I can fly, I believe I can reach the sky", img:"images16.png", price: 99.99 },
-      17 : { name:"Osmanthus Wine Jelly Cake with Wolfberries", img:"images17.png", price: 11.30 },
-      18 : { name:"Sweet rice balls", img:"images18.png", price: 3.45 },
+      1 : { name:"Deep Fried Grouper Fish Fillet Wrapper With Glutinous Rice", img:"images1.png", price: 16.38 , category: "Sea-Food",},
+      2 : { name:"Roasted Iberico Pork Ribs", img:"images2.png", price: 11.56, category: "",},
+      3 : { name:"Roasted Sliced Duck & Sliced Mango In Pecking Style", img:"images3.png", price: 16.38, category: "", },
+      4 : { name:"Deep Fried Fish Fillet With Pomegranate In Orange Juice", img:"images4.png", price: 11.56, category: "Sea-Food", },
+      5 : { name:"Braised Sea Cucumber With White Tofu In Spicy Sauce", img:"images5.png", price: 8.86, category: "Soup", },
+      6 : { name:"Steamed Red Tilapia Fish With Lemon Grass & Green", img:"images6.png", price: 21.20, category: "Sea-Food", },
+      7 : { name:"Steamed White Tofu With Red Caviar & Crystal Prawn Cubes", img:"images7.png", price: 6.74, category: "Soup", },
+      8 : { name:"Stir Fried Crystal Prawn Cubes With Omelettes & Tomatoes", img:"images8.png", price: 9.15, category: "Sea-Food", },
+      9 : { name:"Baked Chicken Chop With Potatoes & Mixed Herbs", img:"images9.png", price: 6.74, category: "", },
+      10 : { name:"Double Boiled Ficus Carica With Pear Soup & Dried Scallop", img:"images10.png", price: 4.34, category: "Sea-Food", },
+      11 : { name:"Tilapia Fish with Cabbage in Supereme Soup", img:"images11.png", price: 7.59, category: "Sea-Food", },
+      12 : { name:"Shark's Fin Soup with Papaya", img:"images12.png", price: 100, category: "Sea-Food", },
+      13 : { name:"Genting Noodle Superior Soup (Half Chicken)", img:"images13.png", price: 7.59, category: "", },
+      14 : { name:"Genting Tomato Soup Series", img:"images14.png", price:  34.69, category: "",},
+      15 : { name:"Orange Juice", img:"images15.png", price: 2.28, category: "Drink", },
+      16 : { name:"I believe I can fly, I believe I can reach the sky", img:"images16.png", price: 99.99, category: "Drink", },
+      17 : { name:"Osmanthus Wine Jelly Cake with Wolfberries", img:"images17.png", price: 11.30, category: "Desert", },
+      18 : { name:"Sweet rice balls", img:"images18.png", price: 3.45, category: "Desert", },
     },
   
     // (B) DRAW HTML PRODUCTS LIST
@@ -34,7 +35,7 @@ var products = {
             segment;
   
         // PRODUCT SEGMENT
-        pdt.className = "pwrap";
+        pdt.className = "pwrap" + " " + p.category;
         pdt.onclick = () => { cart.add(pid); };
         wrapper.appendChild(pdt);
   
@@ -76,6 +77,8 @@ var products = {
   };
   window.addEventListener("DOMContentLoaded", products.draw);
   
+
+
   var cart = {
     // (A) PROPERTIES
     items : {}, // CURRENT ITEMS IN CART
@@ -157,7 +160,7 @@ var products = {
           item.appendChild(part);
   
           // SUBTOTAL
-          subtotal = cart.items[pid] * pdt.price;
+          subtotal = cart.items[pid]* pdt.price;
           total += subtotal;
         }
   
@@ -165,7 +168,7 @@ var products = {
         item = document.createElement("div");
         item.className = "ctotal";
         item.id = "ctotal";
-        item.innerHTML ="TOTAL: $" + total;
+        item.innerHTML ="TOTAL: $" + total.toFixed(2);
         wrapper.appendChild(item);
   
         // EMPTY BUTTON
@@ -320,4 +323,76 @@ var products = {
   window.addEventListener("DOMContentLoaded", orders.init);
   
 
-  // test
+//filter implementation
+let filter = {
+  list : ['All', 'Sea-Food', 'Soup', 'Desert', 'Drink',],
+  // add highlight to the active button
+  header : () =>{
+    let btns = document.getElementsByClassName("btn");
+    let category_div = document.getElementsByClassName("category");
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function() {
+          let current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+          category_div[i].className += " active";
+          let seperation = document.querySelector('#seperator');
+          seperation.innerHTML = filter.list[i].replace("-", " ");
+      });     
+    }
+  },
+  // add filter function (sometime it doesnt work, dont know why though, may be lagging?)
+  ChangeItem : () => {
+    filterSelection("All");
+    let category_div = document.getElementsByClassName("category");
+    let category = filter.list;
+    for (let pid in category){
+      category_div[pid].addEventListener('click', () => {
+          filterSelection(category[pid]);
+      })
+    }
+  },
+}
+
+window.addEventListener("DOMContentLoaded", filter.header);
+window.addEventListener("DOMContentLoaded", filter.ChangeItem); 
+//helper funtion for filter
+// Filter element with keyword
+function filterSelection(key) {
+  let wrapper, i;
+  wrapper = document.getElementsByClassName("pwrap");
+  if (key == "All") key = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < wrapper.length; i++) {
+    RemoveClass(wrapper[i], "show");
+    if (wrapper[i].className.indexOf(key) > -1) AddClass(wrapper[i], "show");
+  }
+}
+
+// Add filtered elements back
+function AddClass(element, name) {
+  let i, ClassArr, FilterClass;
+  ClassArr = element.className.split(" ");
+  FilterClass = name.split(" ");
+  for (i = 0; i < FilterClass.length; i++) {
+    if (ClassArr.indexOf(FilterClass[i]) == -1) {
+      element.className += " " + FilterClass[i];
+    }
+  }
+}
+
+// Hide all elements
+function RemoveClass(element, name) {
+  var i, ClassArr, RemovedClass;
+  ClassArr = element.className.split(" ");
+  RemovedClass = name.split(" ");
+  for (i = 0; i < RemovedClass.length; i++) {
+    while (ClassArr.indexOf(RemovedClass[i]) > -1) {
+      ClassArr.splice(ClassArr.indexOf(RemovedClass[i]), 1);
+    }
+  }
+  element.className = ClassArr.join(" ");
+}
+// end of filter function
