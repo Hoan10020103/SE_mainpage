@@ -13,7 +13,7 @@ var products = {
       9 : { name:"Baked Chicken Chop With Potatoes & Mixed Herbs", img:"images9.png", price: 6.74, category: "Meat", },
       10 : { name:"Double Boiled Ficus Carica With Pear Soup & Dried Scallop", img:"images10.png", price: 4.34, category: "Sea-Food", },
       11 : { name:"Prawn Dumplings", img:"Prawn-dumpling.png", price: 15.80, category: "Dumplings", },
-      12 : { name:"Vegetable Dumplings", img:"Vegetable-dumpling.png", price: 14.80, category: "Dumplings", },
+      12 : { name:"Vegetable Dumplings", img:"Vegetable Dumplings.png", price: 14.80, category: "Dumplings", },
       13 : { name:"Pork and Chives Dumplings", img:"Pork and Chives Dumplings.png", price: 14.80 , category: "Dumplings",},
       14 : { name:"Chicken and Mushroom Dumpling", img:"Chicken and Mushroom Dumpling.png", price: 14.80, category: "Dumplings", },
       15 : { name:"Sichuan Cold Noodles", img:"Sichuan Cold Noodles.png", price: 13.80, category: "Noodle", },
