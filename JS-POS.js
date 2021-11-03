@@ -108,7 +108,8 @@ var products = {
     list : () => {
       // (F1) DRAW CART INIT
       var wrapper = document.getElementById("poscart"),
-          item, part, pdt,
+          item, part, pdt, header, quantity,
+          num = 0,
           total = 0, subtotal = 0,
           empty = true;
       wrapper.innerHTML = "";
@@ -118,60 +119,94 @@ var products = {
   
       // (F2) CART IS NOT EMPTY - LIST ITEMS
       if(!empty){
+        
         for (let pid in cart.items) {
           // CURRENT ITEM
           pdt = products.list[pid];
           item = document.createElement("div");
           item.className = "citem";
           wrapper.appendChild(item);
+          
+          header = document.createElement("div");
+          header.className = "cheader"
+          // Add image
+          part = document.createElement("img");
+          part.className = "cimg";
+          part.src = "images/" + pdt.img;
+          item.appendChild(part);
   
           // ITEM NAME
           part = document.createElement("span");
           part.innerHTML = pdt.name;
           part.className = "cname";
-          item.appendChild(part);
-  
-          // REMOVE
+          header.appendChild(part);
+          
+          // Decrese
+          quantity = document.createElement("div");
+          quantity.className = "cquan";
           part = document.createElement("input");
           part.type = "button";
-          part.value = "X";
+          part.value = "-";
           part.className = "cdel";
           part.onclick = () => { cart.remove(pid); };
-          item.appendChild(part);
+          quantity.appendChild(part);
   
           // QUANTITY
-          part = document.createElement("input");
-          part.type = "number";
-          part.min = 0;
-          part.value = cart.items[pid];
+          part = document.createElement("div");
           part.className = "cqty";
-          part.onchange = function () { cart.change(pid, this.value); };
-          item.appendChild(part);
+          part.innerHTML = cart.items[pid];
+          // part.onchange = function () { cart.change(pid, this.value); };
+          quantity.appendChild(part);
   
+          //Add
+          part = document.createElement("input");
+          part.type = "button";
+          part.value = "+";
+          part.className = "cdel";
+          part.onclick = () => { cart.remove(pid); };
+          quantity.appendChild(part);
+
+          // price
+          part = document.createElement("div");
+          part.className = "cprice";
+          part.innerHTML = "$ " + (pdt.price * cart.items[pid]).toFixed(2);
+          // part.onchange = function () { cart.change(pid, this.value); };
+          quantity.appendChild(part);
+
+          header.appendChild(quantity);
+          item.appendChild(header);
           // SUBTOTAL
           subtotal = cart.items[pid]* pdt.price;
           total += subtotal;
+          num += cart.items[pid];
         }
-  
+        let dine = document.getElementById("h2");
+        dine.innerHTML = "Your cart (" + num + ")";
         // TOTAL AMOUNT
+        header = document.createElement("div");
+        header.id = "ctot";
+        part = document.createElement("div");
+        part.innerHTML = "Total:";
+        header.className = "TotalText";
         item = document.createElement("div");
-        item.className = "ctotal";
         item.id = "ctotal";
-        item.innerHTML ="TOTAL: $" + total.toFixed(2);
-        wrapper.appendChild(item);
+        item.innerHTML ="$" + total.toFixed(2);
+        header.appendChild(part);
+        header.appendChild(item);
+        wrapper.appendChild(header);
   
         // EMPTY BUTTON
-        item = document.createElement("input");
-        item.type = "button";
-        item.value = "Empty";
-        item.onclick = cart.nuke;
-        item.id = "cempty";
-        wrapper.appendChild(item);
+        // item = document.createElement("input");
+        // item.type = "button";
+        // item.value = "Empty";
+        // item.onclick = cart.nuke;
+        // item.id = "cempty";
+        // wrapper.appendChild(item);
   
         // CHECKOUT BUTTON
         item = document.createElement("input");
         item.type = "button";
-        item.value = "Checkout";
+        item.value = "Payment";
         item.onclick = cart.checkout;
         item.id = "ccheckout";
         wrapper.appendChild(item);

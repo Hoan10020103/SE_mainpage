@@ -180,22 +180,36 @@ body {
     }
     
   /* item section */
+  #poscart{position: relative;}
   .citem > * { box-sizing: border-box; }
   .citem, .cname { width: 100%; }
-  .citem { padding: 10px; }
-  .cname{ display: block; }
-  .cdel { width: 25%; }
-  .cqty { width: 75%; }
-  #ctotal { font-weight: 700; padding: 10px; }
-  .cdel, .cqty, #cempty, #ccheckout { padding: 10px; }
-  .cdel, #cempty, #ccheckout {
+  .citem { padding: 10px; display: flex;  }
+  .cquan{display: flex; position: relative;}
+  .cimg{width: 80px; height: 100px;}
+  .cheader{width: calc(100% - 80px);}
+  .cname{ display: block; margin-bottom: 20px;}
+  .cdel { width: 40px; display: inline; }
+  .cqty { 
+    width: 30%; 
+    max-height: 40px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #ctot{position: relative; margin-top: 20px;}
+  .cprice, #ctotal{position: absolute; right: 10px; bottom: 10px; color: red; font-size: 20px; font-weight: 700;}
+  #ctotal {top : -10px; right: 0; font-size: 25px;}
+  .TotalText{font-weight: 700; font-size: 20px;}
+  .cdel, #ccheckout { padding: 10px; height: 42px;}
+  .cdel, #ccheckout {
     background: #9a2121;
     border: 1px solid #9a2121;
     color: #fff;
     font-weight: 700;
     cursor: pointer;
   }
-  #cempty, #ccheckout { margin: 5px; }
+  #ccheckout { margin: 5px; width: 100%; border-radius: 20px; margin-top: 70px;}
   
   /* (D) RECEIPT */
   #posreceipt { display: none; }
