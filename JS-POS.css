@@ -5,7 +5,7 @@ body {
     margin: 0 auto;
   }
   #main-menu { width: 70%; }
-  #poscart { width: 30%; }
+  #total-cart { width: 30%; }
   
   /* header */
   #header{
@@ -149,12 +149,37 @@ body {
     .pprice span{position: absolute; font-weight:900; color: red; bottom: 0; }
     .pprice img{position: absolute; right: 10px; bottom: 0; width: 30px; height: 30px; border-radius: 10px;}
   /* (C) CART */
-  #poscart {
+  #total-cart {
     z-index: 1;
-    padding: 10px;
+    padding: 20px 10px;
     background: #fff;
     box-shadow: -5px 0px 3px 0px rgb(196, 196, 196);
   }
+  /* Dine in section */
+  #dine-in{
+    display: flex;
+    position: relative;
+    align-items: center;
+  }
+    #dine-in > img{
+      width: 50px;
+      height: 50px;
+    }
+    #dine-in > h2{
+      color: red;
+    }
+    #dine-in  > button{
+      position: absolute;
+      right: 0;
+      background-color: rgb(147, 222, 247);
+      font-size: 20px;
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      padding: 5px 15px;
+    }
+    
+  /* item section */
   .citem > * { box-sizing: border-box; }
   .citem, .cname { width: 100%; }
   .citem { padding: 10px; }
