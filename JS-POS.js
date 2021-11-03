@@ -324,7 +324,8 @@ var products = {
 
 //filter implementation
 let filter = {
-  list : ['All', 'Sea-Food', 'Soup', 'Desert', 'Drink',],
+  // array for filter category
+  list : ['All', 'Sea-Food', 'Meat', 'Dumplings', 'Noodle',],
   // add highlight to the active button
   header : () =>{
     let btns = document.getElementsByClassName("btn");
