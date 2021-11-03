@@ -182,13 +182,13 @@ body {
   /* item section */
   #poscart{position: relative;}
   .citem > * { box-sizing: border-box; }
-  .citem, .cname { width: 100%; }
-  .citem { padding: 10px; display: flex;  }
+  .citem{ width: 100%; }
+  .citem { padding: 10px; display: flex; }
   .cquan{display: flex; position: relative;}
   .cimg{width: 80px; height: 100px;}
-  .cheader{width: calc(100% - 80px);}
-  .cname{ display: block; margin-bottom: 20px;}
-  .cdel { width: 40px; display: inline; }
+  .cheader{width: calc(100% - 80px); height: 100%;}
+  .cname{ display: block; margin-bottom: 20px; height: 38px;}
+  .cdel { width: 40px; display: inline;}
   .cqty { 
     width: 30%; 
     max-height: 40px;
