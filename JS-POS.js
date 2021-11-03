@@ -52,9 +52,6 @@ var products = {
         segment = document.createElement("div");
         segment.className = "pname";
         segment.innerHTML = p.name;
-        let name_number = document.createElement("span");
-        name_number.innerHTML =  pid + ". "
-        segment.prepend(name_number);
         detail.appendChild(segment);
   
         // PRICE
@@ -119,15 +116,8 @@ var products = {
         if (cart.items.hasOwnProperty(key)) { empty = false; break; }
       }
   
-      // (F2) CART IS EMPTY
-      if (empty) {
-        item = document.createElement("div");
-        item.innerHTML = "Cart is empty";
-        wrapper.appendChild(item);
-      }
-  
-      // (F3) CART IS NOT EMPTY - LIST ITEMS
-      else {
+      // (F2) CART IS NOT EMPTY - LIST ITEMS
+      if(!empty){
         for (let pid in cart.items) {
           // CURRENT ITEM
           pdt = products.list[pid];
