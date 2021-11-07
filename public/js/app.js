@@ -1,4 +1,3 @@
-
 var products = {
     // (A) PRODUCTS LIST
     list : {
@@ -345,6 +344,77 @@ var products = {
     }
   };
   window.addEventListener("DOMContentLoaded", orders.init);
-  
+  //filter implementation
+let filter = {
+  // array for filter category
+  list : ['All', 'Sea-Food', 'Meat', 'Dumplings', 'Noodle',],
+  // add highlight to the active button
+  header : () =>{
+    let btns = document.getElementsByClassName("btn");
+    let category_div = document.getElementsByClassName("category");
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function() {
+          let current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+          category_div[i].className += " active";
+          let seperation = document.querySelector('#seperator');
+          seperation.innerHTML = filter.list[i].replace("-", " ");
+      });     
+    }
+  },
+  // add filter function
+  ChangeItem : () => {
+    filterSelection("All");
+    let category_div = document.getElementsByClassName("category");
+    let category = filter.list;
+    for (let pid in category){
+      category_div[pid].addEventListener('click', () => {
+          filterSelection(category[pid]);
+      })
+    }
+  },
+}
 
+window.addEventListener("DOMContentLoaded", filter.header);
+window.addEventListener("DOMContentLoaded", filter.ChangeItem); 
+//helper funtion for filter
+// Filter element with keyword
+function filterSelection(key) {
+  let wrapper, i;
+  wrapper = document.getElementsByClassName("pwrap");
+  if (key == "All") key = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < wrapper.length; i++) {
+    RemoveClass(wrapper[i], "show");
+    if (wrapper[i].className.indexOf(key) > -1) AddClass(wrapper[i], "show");
+  }
+}
 
+// Add filtered elements back
+function AddClass(element, name) {
+  let i, ClassArr, FilterClass;
+  ClassArr = element.className.split(" ");
+  FilterClass = name.split(" ");
+  for (i = 0; i < FilterClass.length; i++) {
+    if (ClassArr.indexOf(FilterClass[i]) == -1) {
+      element.className += " " + FilterClass[i];
+    }
+  }
+}
+
+// Hide all elements
+function RemoveClass(element, name) {
+  var i, ClassArr, RemovedClass;
+  ClassArr = element.className.split(" ");
+  RemovedClass = name.split(" ");
+  for (i = 0; i < RemovedClass.length; i++) {
+    while (ClassArr.indexOf(RemovedClass[i]) > -1) {
+      ClassArr.splice(ClassArr.indexOf(RemovedClass[i]), 1);
+    }
+  }
+  element.className = ClassArr.join(" ");
+}
+// end of filter function
