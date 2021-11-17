@@ -1,9 +1,12 @@
 /* (A) WRAPPER */
 body {
     font-family: arial, sans-serif;
-    display: flex;
     margin: 0 auto;
   }
+#all{
+  display: flex;
+  margin-top: -525px; /* dont ask */
+}
   #main-menu { width: 70%; }
   #total-cart { width: 30%; }
   
@@ -203,8 +206,8 @@ body {
   .TotalText{font-weight: 700; font-size: 20px;}
   .cdel, #ccheckout { padding: 10px; height: 42px;}
   .cdel, #ccheckout {
-    background: #9a2121;
-    border: 1px solid #9a2121;
+    background: rgb(245, 60, 4);
+    border: 1px solid black;
     color: #fff;
     font-weight: 700;
     cursor: pointer;
@@ -214,3 +217,117 @@ body {
   /* (D) RECEIPT */
   #posreceipt { display: none; }
   
+
+
+
+/* order */
+#order{
+  position: sticky;
+  position: -webkit-sticky;
+  height: 70vh;
+  width: 60%;
+  background-color: white;
+  top: 15%;
+  left: 20%;
+  z-index: 2;
+  border-radius: 20px;
+}
+  /* header */
+  #order-head{
+    position: relative;
+    background-color: rgb(196, 196, 196);
+    font-size: 25;
+    font-weight: 800;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  #x-img{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
+  /* product-detail */
+  #product-detail{
+    display: flex;
+    padding: 10px ;
+  }
+    /* img */
+    #img-detail{
+      width: 20%;  
+      margin: 0px 5%;
+    }
+      #img-detail > img{
+        width: 100%;
+        border: 2px solid black;
+        border-radius: 10px;
+      }
+    /* detail */
+    #detail{
+      width: 70%;
+      font-size: 15px;
+    }
+    
+      /* overview */
+      #overview{
+          display: flex;
+          padding: 0px 10px;
+      }
+        #overview > div :first-child{margin-top: 0px; font-size: 18px; font-weight: 700;}
+        #order-code{
+          flex: 1 0 20%;
+        }
+        #order-name{
+          flex: 1 0 60%;
+        }
+        #unit-price{
+          flex: 1 0 20%;
+        }
+          #unit-price > strong {font-size: 22px; color: red;} 
+
+      /* quantity */
+      #quantity{
+        position: relative;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        margin-bottom: 5px;
+        font-size: 20px;
+        font-weight: 700;
+      }
+        .number{
+          position: absolute;
+          right: 5px;
+          top: 10px;
+        }
+        .cqty-number{
+          width: 50px;
+        }
+      /* more detail */
+      #more-detail{
+        font-size: 14px;
+      }
+      /* add to the cart */
+      #add-cart{
+        padding: 10px; height: 42px;
+        background: rgb(245, 60, 4);
+        border: 1px solid black;
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+        margin: 5px;
+        width: 90%; 
+        border-radius: 20px; 
+        margin-top: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+        #add-cart > img {
+          width: 40px;
+          height: 40px;
+        }
