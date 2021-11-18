@@ -10,16 +10,18 @@
   <body>
     
     <!-- (A) PRODUCTS LIST -->
-    <div id = "main-menu">
-      <!-- header -->
-      <div id = "header">
-        <img src = "images/home-icon.png">
-        <div>
-          <strong>Back to home</strong>
-        </div>
-      </div> 
-      <!-- filter -->
-      <div id = "filter">
+    <div id = "all">
+
+      <div id = "main-menu">
+        <!-- header -->
+        <div id = "header">
+          <img src = "images/home-icon.png">
+          <div>
+            <strong>Back to home</strong>
+          </div>
+        </div> 
+        <!-- filter -->
+        <div id = "filter">
           <img class="arrow_img" src = "images/left_arrow.png">
           <img class="arrow_img" style="right: 0;" src = "images/right_arrow.png">
           <div id="category_container"> 
@@ -29,28 +31,28 @@
                 <p><strong>All</strong></p>
               </div>
             </button>
-
+            
             <button class = "btn">
               <div class="category">
                 <img src="images/sea-food.png" alt="">
                 <p><strong>Sea food</strong></p>
               </div>
             </button>
-
+            
             <button class = "btn">
               <div class="category">
                 <img src="images/Meat.png" alt="">
                 <p><strong>Meat</strong></p>
               </div>
             </button>
-
+            
             <button class = "btn">
               <div class="category">
                 <img src="images/Dumplings.png" alt="">
                 <p><strong>Dumplings</strong></p>
               </div>
             </button>
-
+            
             <button class = "btn">
               <div class="category">
                 <img src="images/Noodle.png" alt="">
@@ -58,16 +60,16 @@
               </div>         
             </button>
           </div>
-      </div>
+        </div>
         
-      <!-- line seperator -->
-      <h1 id = "seperator">All</h1>
+        <!-- line seperator -->
+        <h1 id = "seperator">All</h1>
+        
+        <!-- menu -->
+        <div id="poslist"></div>
+        
+      </div>
       
-      <!-- menu -->
-      <div id="poslist"></div>
-      
-    </div>
-
     <!-- (B) CART -->
     <div id = "total-cart">
       <div id = "dine-in">
@@ -76,13 +78,14 @@
         <button> Dine in</button>
       </div>
       
-     
+      
       
       <div id="poscart">
       </div>
     </div>
-
+    
     <!-- (C) NINJA RECEIPT -->
     <div id="posreceipt"></div>
+  </div>
   </body>
 </html>

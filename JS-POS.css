@@ -1,3 +1,5 @@
+/*  */
+
 /* (A) WRAPPER */
 body {
     font-family: arial, sans-serif;
@@ -5,7 +7,11 @@ body {
   }
 #all{
   display: flex;
-  margin-top: -525px; /* dont ask */
+  /* change property for js */
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px)*/
+  /* end */
+  margin-top: -525px;  
 }
   #main-menu { width: 70%; }
   #total-cart { width: 30%; }
@@ -222,6 +228,9 @@ body {
 
 /* order */
 #order{
+  /* for javascript */
+  visibility: hidden;
+  /* end */
   position: sticky;
   position: -webkit-sticky;
   height: 70vh;
@@ -236,13 +245,14 @@ body {
   #order-head{
     position: relative;
     background-color: rgb(196, 196, 196);
-    font-size: 25;
+    font-size: 25px;
     font-weight: 800;
     padding: 5px 20px;
     border-radius: 20px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
   }
+  #order-head > p{margin: 10px;}
   #x-img{
     width: 50px;
     height: 50px;

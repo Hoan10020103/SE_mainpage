@@ -1,0 +1,147 @@
+#header{
+  margin: 20px 0px 20px 30px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+  /* home logo */
+  #header img{
+    height: 50px;
+    width: 50px;
+  }
+  /* back to home */
+  #header div{
+    text-align: end;
+    display: flex;
+  }
+  #header strong{
+    color: #3d6091;
+    font-size: 30px;
+    margin-left: 40px;
+    align-self: center;
+  }
+  #Log-out{
+    margin-left: auto;
+    padding: 10px 20px;
+    margin-right: 30px;
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+    background-color: rgb(7, 123, 255);
+    border-radius: 20px;
+  }
+
+/* order list */
+#order-list{
+  border: 2px solid black;
+  margin: 20px 30px;
+  height: 100vh;
+  overflow: scroll;
+  margin-top: -500px;
+}
+  .order{
+    display: flex;
+    height: 20vh;
+    /* border: 1px solid grey; */
+  }
+    .No, .Id, .Name, .Date{
+      border: 1px solid grey;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .No{flex: 1 0 20%;}
+    .Id{flex: 1 0 20%;}
+    .Name{flex: 1 0 30%;}
+    .Date{flex: 1 0 29%;}
+
+  .head{
+    color: blue;
+    font-size: 30px;
+    font-weight: 700;
+    height: 10vh;
+  }
+
+#customer-order{
+  /* visibility: hidden; */
+  position: sticky;
+  position: -webkit-sticky;
+  height: 70vh;
+  width: 60%;
+  background-color: white;
+  top: 15%;
+  left: 20%;
+  z-index: 2;
+  border-radius: 20px;
+  overflow: scroll;
+}
+  #order-head{
+    position: relative;
+    background-color: rgb(0, 119, 255);
+    font-size: 30px;
+    font-weight: 800;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    display: flex;
+    justify-content: center;
+  }
+  #order-head > p{margin: 10px; color: white;} 
+  #x-img{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
+  /* detail */
+  #detail{
+    width: 97%;
+    font-size: 15px;
+  }
+  
+    /* overview */
+    .overview{
+        display: flex;
+        padding: 0px 10px;
+        width: 100%;
+    }
+      .first {margin-top: 0px; font-size: 25px; font-weight: 700; border-bottom: 2px solid grey;}
+      .order-name, .order-price, .order-quan{
+        text-align: center;
+      }
+      .order-name{
+        flex: 1 0 40%;
+      }
+      .order-quan{
+        flex: 1 0 25%;
+      }
+      .order-price{
+        flex: 1 0 25%;
+      }
+        .unit-price > strong {font-size: 22px; color: red;} 
+  /* option */
+  #option{
+    border-top: 2px solid grey;
+    padding-top: 20px;
+    display: flex;
+    width: 100%;
+
+  }
+
+    #option > div{
+      width: 50%;
+      display: flex;
+      justify-content: center;
+    }
+    #option button{
+      background-color: rgb(0, 119, 255);
+      color: white;
+      font-size: 20px;
+      padding: 10px 40px;
+      border-radius: 20px;
+    }
+
+  
